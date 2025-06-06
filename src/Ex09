@@ -1,0 +1,49 @@
+Os métodos que merecem maior atenção são
+aqueles que além do teste de caminho feliz
+(happy path) precisam de testes de exceção.
+
+Ou seja, além de fornecer valores válidos
+(happy path) precisam de ser testados
+quando os valores inputados são inválidos.
+
+Ex.: divisão por zero, raíz quadrada
+de número negativo, log de 0 e negativos e
+assim sucessivamente.
+
+Outros métodos que também merecem mais
+atenção são aqueles que usam funções
+trigonométricas ou exponenciais (cálculos
+sensíveis), que podem sofrer com problemas
+de precisão ou conversão.
+
+Nesses casos, é importante verificar os
+resultados com tolerância (para doubles).
+
+Datas também merecem atenção por diversos
+motivos e por terem diversas variáveis que
+afetam o resultado final:
+
+- regras de negócio complexas
+ex.:
+"O vencimento é sempre no próximo dia útil.",
+"Permitir agendamento com até 7 dias de antecedência."
+
+Essas regras exigem testes para
+vários cenários: feriados, finais de semana, etc.
+
+
+- fusos horários e horários de verão
+
+- anos bissextos, meses com durações distintas
+ex.: Erros comuns: LocalDate.of(2023, 2, 29) lança exceção.
+
+- lógica temporal de códigos legados
+ex.: Exemplo: agendamentos que só
+aceitam anos entre 2020 e 2025 vão quebrar em 2026.
+
+Já a cobertura de código, é uma ferramenta
+estratégica que ajuda a:
+
+Evitar zonas cegas em testes.
+Aumentar a confiabilidade do sistema.
+Guiar melhorias nos testes automatizados.
